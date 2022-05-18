@@ -84,7 +84,7 @@ var fight = function(enemy) {
       window.alert(enemy.name + ' has died!');
 
       // award player money for winning
-      playerMoney = playerMoney + 20;
+      playerInfo.money = playerInfo.money + 20;
       // leave while() loop since enemy is dead
       break;
     } else {
@@ -130,7 +130,7 @@ var startGame = function() {
       fight(pickedEnemyObj);
 
       // if we're not at the last enemy in the array
-      if (playerHealth > 0 && i < enemyInfo.length - 1) {
+      if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
         // ask if player wants to use the store before the next round
         var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
 
@@ -151,8 +151,8 @@ var startGame = function() {
 // function to end the entire game
 var endGame = function() {
   // if player is still alive, player wins!
-  if (playerHealth > 0) {
-    window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
+  if (playerInfo.health > 0) {
+    window.alert("Great job, you've survived the game! You now have a score of " + playerInfo.money + ".");
   } 
   else {
     window.alert("Youv'e lost your robot in battle.");
